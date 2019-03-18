@@ -12,8 +12,6 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
-import java.lang.IllegalArgumentException
-import java.lang.IllegalStateException
 import java.nio.file.Files
 import java.nio.file.Path
 
@@ -148,6 +146,17 @@ internal class EdgarTest {
         setLanguage("de")
 
         assertEquals("Crash and burn", tr("Crash and burn"))
+    }
+
+    @Test
+    fun `tr returns msgid for blank translations`() {
+        Files.createDirectory(fs.getPath("/translations"))
+        Files.createDirectory(fs.getPath("/translations/de"))
+        putResource("/basic.po", fs.getPath("/translations/de/mydomain.po"))
+        init(fs.getPath("/translations"), "mydomain")
+        setLanguage("de")
+
+        assertEquals("Untranslated", tr("Untranslated"))
     }
 
     @Test

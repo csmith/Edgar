@@ -9,3 +9,6 @@ msgstr ""
 
 msgid "Hack the planet!"
 msgstr "Hacke den Planeten!"
+
+msgid "Untranslated"
+msgstr ""

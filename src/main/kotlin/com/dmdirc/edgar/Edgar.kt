@@ -105,7 +105,7 @@ object Edgar {
      *
      * The domain will be loaded if it is not already cached.
      *
-     * If the translation is not found, returns the [messageId] unmodified.
+     * If the translation is not found or is empty, returns the [messageId] unmodified.
      *
      * @throws IllegalStateException if Edgar has not been initialised with the [init] method.
      * @throws IllegalArgumentException if the specified domain does not exist in the current language.
@@ -113,7 +113,8 @@ object Edgar {
     fun tr(domain: String, messageId: String): String {
         check(initialised) { "Edgar must be initialised with the [init] method before use" }
         if (domain !in cache) { loadDomain(domain) }
-        return cache[domain]?.get(messageId) ?: messageId
+        val translation = cache[domain]?.get(messageId)
+        return if (translation.isNullOrEmpty()) messageId else translation
     }
 
     /**
