@@ -1,0 +1,40 @@
+= Edgar
+
+Edgar is a small Kotlin/JVM library to read the `.po` files used by
+https://www.gnu.org/software/gettext/[GNU gettext].
+
+Given a directory structure such as:
+
+    translations
+      ↳ en-GB
+          ↳ messages.po
+          ↳ help.po
+      ↳ en-US
+          ↳ messages.po
+          ↳ help.po
+      ↳ de
+          ↳ messages.po
+          ↳ help.po
+
+You can use Edgar with just a few lines of code:
+
+[source,kotlin]
+----
+Edgar.init(Paths.get("translations))
+Edgar.setLanguage("en-GB")
+
+println(Edgar.tr("Hello world!"))
+println(Edgar.tr("help", "This is loaded from help.po"))
+----
+
+Edgar currently supports:
+
+* Multiple domains
+* Multi-line messages
+* Escaped characters (e.g. nested quotes, new lines)
+* Caching of all loaded domains
+* Runtime changing of language via additional `setLanguage` calls
+
+It does *not* currently support:
+
+* Plural forms
