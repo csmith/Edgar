@@ -1,5 +1,9 @@
 = Edgar
 
+image:https://travis-ci.org/csmith/Edgar.svg?branch=master[Build status, link=https://travis-ci.org/csmith/Edgar]
+image:https://codecov.io/gh/csmith/Edgar/branch/master/graph/badge.svg[Code coverage, link=https://codecov.io/gh/csmith/Edgar]
+image:https://api.bintray.com/packages/dmdirc/releases/edgar/images/download.svg[Latest version, link=https://bintray.com/dmdirc/releases/edgar/_latestVersion]
+
 Edgar is a small Kotlin/JVM library to read the `.po` files used by
 https://www.gnu.org/software/gettext/[GNU gettext].
 
@@ -38,3 +42,9 @@ Edgar currently supports:
 It does *not* currently support:
 
 * Plural forms
+
+Edgar is available at the following maven coordinates:
+
+Repository:: https://dl.bintray.com/dmdirc/releases
+Group:: com.dmdirc
+Artifact:: edgar
