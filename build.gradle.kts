@@ -3,7 +3,7 @@ import org.jetbrains.dokka.gradle.LinkMapping
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import java.io.File
 
-version = "0.1.0"
+version = "0.1.1"
 group = "com.dmdirc.edgar"
 
 plugins {
